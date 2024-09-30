@@ -5,14 +5,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clonar el repositorio
-                git 'https://github.com/yesvitale/semana3.git' // Cambia esta URL
+                git 'https://github.com/yesvitale/semana3.git'
             }
         }
         
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Construir la imagen de Docker
+                    //imagen de Docker
                     sh 'docker build -t my-python-app .'
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    // Ejecutar el contenedor
+                    // ejecutar contenedor
                     sh 'docker run -d -p 5000:5000 my-python-app'
                 }
             }
@@ -30,13 +30,13 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline completado.'
+            echo 'Pipeline finalizado'
         }
         success {
-            echo '¡Pipeline ejecutado con éxito!'
+            echo 'Ejecutado con éxito'
         }
         failure {
-            echo 'Hubo un error en el pipeline.'
+            echo 'Hay un error.'
         }
     }
 }
